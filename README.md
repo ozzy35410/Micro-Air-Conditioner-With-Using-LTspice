@@ -43,12 +43,16 @@ In this project, LM35 element was used as the temperature sensor. LM35 has 10-mV
 > Fig. 1. Sensing unit diagram
 
 The sensing unit can be seen in figure 1. Since the output value obtained from LM35 will be between 240-400 mV, some discrepancies may occur. Therefore, to reduce these discrepancies, the output voltage value obtained from the LM35 was amplified using a non-inverting amplifier with 4 V/V gain. The voltage gain of the non-inverting amplifier is given by (1).
+
 *Vsen = Vin * (100k+33k)/33k* (1)
+
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/0cf06976-d31f-4297-969b-0944fcbeabd6)
 > Fig. 2. Sensing unit output
 
 As a result of this circuit, we set the sensing output value between 0.96V-1.6V. This result can be seen in figure 2. Experimentally, values consistent with these results have been obtained. Instead of 0.96 V, 0.94 V could be obtained as the minimum value. Therefore, instead of being cooled to 25 degrees, the circuit could be cooled to 24.3 degrees. The reason for the 0.2 V difference will be explained in the operating unit.
+
 # IV. CONTROL UNIT
+
 In this unit, the user can adjust the temperature of the environment between 24 and 40 degrees. The voltage values corresponding to these values must be in the same range as the sensing unit values. A 10k ohm potentiometer was used to change the desired temperature value. When the potentiometer is at the minimum value (0 ohms), a result of 0.96 volts should be obtained, and when it is at the maximum value (theoretically 10k ohms, experimentally 9.87k ohms), a result of 1.6 volts should be obtained. To meet the necessary conditions, the circuit in figure 3 was created.
 
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/b286bc60-1d6f-415f-a9ba-697d96fd29dd)
@@ -66,7 +70,9 @@ While the set subunit represents the desired temperature, the sensing unit repre
 > Fig. 5. Difference subunit diagram
 
 Difference amplifier (figure 5) was used to calculate the difference between Vset and Vsen. When the difference between these two values is less than 40 mV (1°C), the circuit should remain steady. In order to achieve this situation, the result of the difference amplifier must be less than the diode opening voltage. That is, the 40 mV value should be amplified to 700 mV from the difference amplifier. The gain of the difference amplifier is given by (2). 
+
 _Vout = Vset *  R4/(R2+R4) – Vsen*  R3/R1_ (2)
+
 Vset and Vsen coefficients should be equal to each other and gain should be 17.5 V/V. Resistors suitable for these conditions have been selected. Since there is no resistor directly corresponding to some of these resistors, the required resistance values were obtained by connecting them in series. Since the output value obtained in the difference amplifier will be used as the input value in different op-amps, a voltage buffer has been used for the same reason as in the set subunit. If the result obtained as a result of the difference amplifier is negative, it means the desired temperature is less than the ambient temperature. This negative current must be connected to the cooler subunit with a reverse diode. In this way, the cooler subunit will operate when the environment needs to be cooled. If the result is positive, it means the desired temperature is higher than the ambient temperature. It should be connected to the heater subunit with positive current. In this way, the heater subunit will operate when the environment needs to be heated. Thanks to the diode opening voltage, the circuit will remain steady when there is a difference of less than 1°C. 
 
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/dfce0699-4ff1-4e18-a7bc-91911a9e8d65)
@@ -88,7 +94,9 @@ At this point, a significant difference was noted between the theoretical design
 > Fig. 9. Heater subunit
 
 The constructed circuits can be seen in figure 8 and figure 9. A gain value was chosen (180 V/V) that would be absolutely sufficient for even the smallest voltage value difference (>40 mV). Since a positive voltage value will be connected to the power mosfet as input, another inverting amplifier was used to make the current value going to the heater positive. The output voltage value obtained from the amplifiers were connected to the gate end of the power mosfet. The source end of the power mosfet was grounded, and the drain end was connected to the heater and cooler. A 12 V supply was connected to the other end of the heater and cooler subunits. In this way, when a positive voltage is input to the gate of the power mosfet, it will function as a switch [5] and the drain end connected to the heater or cooler will be grounded. In this way, 12 V will drop to the heater and cooler subunits. To indicate which operation is being performed, a red LED was added parallel to the heater subunit and a blue LED was added parallel to the cooler subunit. To prevent too much voltage drop on the LEDs, 1k Ω resistors were added in series to the LEDs. During the experiment, it was observed that the heater subunit consumed approximately 8.5 W and the cooler subunit consumed approximately 2.75 W. If calculated theoretically, IRFZ46N has 1.3 V forward voltage, therefore approximately 10.7 V drops on the heater subunit. The power consumption is given by (3)  
+
 _P = (V*V)/R_(3)
+
 Therefore, power consumed by heater approximately equal to 11.5 W. Considering that in a real circuit, the heater subunit will drop less than 10.7 V, a consistent result can be considered to be obtained. Similarly, if the cooler unit is calculated theoretically, a result of approximately 2.29 W is obtained for a dc fan with 50 Ω internal resistance.
 Additionally, heater and cooler operations worked sequentially, not simultaneously, as desired. A range where neither was working was successfully achieved. Reached from ambient temperature (24 °C) to maximum set temperature (40 °C) in less than 3 minutes. The air conditioner worked autonomously for the set value. Moreover, temperature is sustained in the set value with ±0.8°C. 
 
