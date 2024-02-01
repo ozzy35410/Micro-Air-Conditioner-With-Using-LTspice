@@ -64,6 +64,7 @@ Voltage division method was used in this circuit. By using the resistor values i
 > Fig. 4. Set subunit output
 
 In LTspice, the .step param command can be used to sweep the resistor value. With this command, the potentiometer value can be simulated from 1 Ω to 9870 Ω. Set subunit output can be seen in the graph in figure 4. Experimentally, values consistent with these results have been obtained. No different results were observed.
+
 While the set subunit represents the desired temperature, the sensing unit represents the ambient temperature. The outputs of both are in the same voltage range. Therefore, the difference between them can be calculated directly using the difference amplifier. One of the desired features in the project is that the air conditioner remains steady when there is less than 1°C difference between Vset and Vsen. To ensure this condition, 1N4007 diodes are used in the circuit. 1N4007 diodes have an opening voltage of 0.7 V [2]. 
 
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/1a6ad9f0-acb2-4af9-af66-95f7bd87dd18)
@@ -98,6 +99,7 @@ The constructed circuits can be seen in figure 8 and figure 9. A gain value was 
 _P = (V*V)/R_ (3)
 
 Therefore, power consumed by heater approximately equal to 11.5 W. Considering that in a real circuit, the heater subunit will drop less than 10.7 V, a consistent result can be considered to be obtained. Similarly, if the cooler unit is calculated theoretically, a result of approximately 2.29 W is obtained for a dc fan with 50 Ω internal resistance.
+
 Additionally, heater and cooler operations worked sequentially, not simultaneously, as desired. A range where neither was working was successfully achieved. Reached from ambient temperature (24 °C) to maximum set temperature (40 °C) in less than 3 minutes. The air conditioner worked autonomously for the set value. Moreover, temperature is sustained in the set value with ±0.8°C. 
 
 # VI. DISPLAY UNIT
@@ -165,6 +167,7 @@ The graph in Figure 19 shows the voltage value at the node at the end of the gre
 > Fig. 22. Final current values for all colors
 
 As a result, the result is obtained as in figure 22. If the current passing through the RGB LEDs is high, the resistor value connected to the LEDs in series can be increased. 
+
 Experimentally, the biggest difference is caused by the opening voltages of the LEDs. Red RGB LED has an opening voltage of approximately 2V, while blue and green RGB LEDs have an opening voltage of approximately 3.2V. (These values were obtained experimentally.) In the display circuit created by combining the circuits in Figure 11, Figure 15 and Figure 18, small differences occurring anywhere in the circuit can cause major changes. 
 
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/c188abdb-2335-4995-908e-61b95bf51047)
@@ -175,7 +178,8 @@ For example, if the V1 value in figure 11 was 6V instead of 8V, a result like fi
 ![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/cbb4c068-7235-4e60-b8e5-cd7f7917203d)
 > Fig. 24. Final current values for changed V1 value
 
-If the V1 value in figure 11 was 10V instead of 8V, a result like figure 24 would be obtained. 
+If the V1 value in figure 11 was 10V instead of 8V, a result like figure 24 would be obtained.
+
 Due to differences that could not be fully determined experimentally, the maximum green brightness could not be achieved at exactly 32 °C. But a consistent result was obtained. The green value dropped to zero earlier than 24 °C. Therefore, the cyan color, which is a mixture of green and blue colors, could not be observed. But all other colors were observed with decreasing and increasing brightness (blue, green, yellow, red). Using a mechanical switch, the circuit was enabled to display the ambient or set temperature. 
 
 # VII. CONCLUSION
