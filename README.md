@@ -1,5 +1,10 @@
 # Micro-Air-Conditioner-With-Using-LTspice
 Theoretical and practical design process of integrated analog micro-air conditioner.
+
+Mustafa Alp Ekici, and Oğuzhan Oğuz
+Middle East Technical University
+(ekici.mustafa & oguzhan.oguz) @metu.edu.tr
+
 # Project Report
 __*Abstract* - This article aims to explain the theoretical and practical design process of integrated analog micro-air conditioner design. This article will include the design process of the project, circuit designs, theoretical results, and a comparison of experimental and practical results..__
 
