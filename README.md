@@ -2,7 +2,9 @@
 Theoretical and practical design process of integrated analog micro-air conditioner.
 
 Mustafa Alp Ekici, and Oğuzhan Oğuz
+
 Middle East Technical University
+
 (ekici.mustafa & oguzhan.oguz) @metu.edu.tr
 
 # Project Report
