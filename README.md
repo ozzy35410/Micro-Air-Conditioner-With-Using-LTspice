@@ -17,15 +17,25 @@ An air conditioner is a device designed to control and regulate the temperature,
 The electronic components used in the project are listed below:
 
 LM35 (temperature sensor)
+
 LM741 (operational amplifier)
+
 10 Ω, 5W stone resistor
+
 12 V, 0.12 A DC Fan
+
 IRFZ46N (power mosfet)
+
 Red, Blue and RGB (anode) LEDs
+
 1N4007 diode
+
 Resistors and jumpers
+
 Mechanical switch
-12 and 6 V power supplies,
+
+12 and 6 V power supplies
+
 # III. SENSING UNIT
 In this project, LM35 element was used as the temperature sensor. LM35 has 10-mV/°C scale factor and has -55°C to 150°C temperature range [1]. The micro-air air conditioner built in the project operates between 24°C and 40°C.
 
