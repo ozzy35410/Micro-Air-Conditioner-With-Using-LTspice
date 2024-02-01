@@ -146,7 +146,7 @@ Experimentally, the biggest difference is caused by the opening voltages of the 
 
 For example, if the V1 value in figure 11 was 6V instead of 8V, a result like figure 23 would be obtained.
 
-![Uploading image.png…]()
+![image](https://github.com/ozzy35410/Micro-Air-Conditioner-With-Using-LTspice/assets/46710637/fb69b8eb-ad64-4887-b19a-2cb891b03333)
 > Fig. 24. Final current values for changed V1 value
 
 If the V1 value in figure 11 was 10V instead of 8V, a result like figure 24 would be obtained. 
